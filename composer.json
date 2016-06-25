@@ -1,0 +1,29 @@
+{
+  "name": "gabrielanhaia/masknizzer",
+  "description": "Masknizzer is a package for the application of masks in fields.",
+  "keywords": [
+    "masknizzer",
+    "mask"
+  ],
+  "minimum-stability":"dev",
+  "version": "1.0",
+  "license":"MIT",
+  "authors": [
+    {
+      "name":"Gabriel Anhaia",
+      "email":"anhaia.gabriel@gmail.com"
+    }
+  ],
+  "require": {
+	"php": ">5.4",
+    "eloquent/enumeration": "5.1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gabrielanhaia\\masknizzer\\":"src/"
+    }
+  }
+}
