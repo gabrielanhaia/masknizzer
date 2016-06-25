@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gabrielanhaia\\masknizzer\\":"src/"
+      "Masknizzer\\":"src/"
     }
   }
 }
