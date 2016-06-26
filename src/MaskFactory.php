@@ -8,6 +8,8 @@ namespace Masknizzer;
  *
  * Class MaskFactory
  * @package Masknizzer
+ * 
+ * @author Gabriel Anhaia <anhaia.gabriel@gmail.com>
  */
 class MaskFactory
 {
