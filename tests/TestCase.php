@@ -26,6 +26,26 @@ class TestCase extends PHPUnit_Framework_TestCase
         ];
     }
 
+    public function invalidArgunetExceptionDataProvider()
+    {
+        $maskFactory = new MaskFactory();
+
+        return [
+            [
+                'maskFactory' => $maskFactory,
+                'maskEnum'    => EnumMasks::PHONE_NUMBER_8(),
+                'wordToMask'  => '1234567'
+
+            ],
+            [
+                'maskFactory' => $maskFactory,
+                'maskEnum'    => EnumMasks::POSTAL_CODE(),
+                'wordToMask'  => '123456'
+
+            ]
+        ];
+    }
+
     /**
      * @dataProvider genericDataProvider
      */
@@ -35,10 +55,12 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider invalidArgunetExceptionDataProvider
      *
+     * @expectedException \InvalidArgumentException
      */
-    public function testQuantityFieldsAndInvalidMask()
+    public function testQuantityFieldsAndInvalidMask(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask)
     {
-
+        $maskFactory->factory($maskEnum, $wordToMask)->mask();
     }
 }
