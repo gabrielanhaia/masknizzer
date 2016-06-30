@@ -55,6 +55,27 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Data Provider for mask test applicationData Provider for mask test application.
+     *
+     * @return array
+     */
+    public function maskApplicationTest()
+    {
+        return [
+            [
+                'maskEnum'          => EnumMasks::POSTAL_CODE(),
+                'wordToMask'        => '12345678'
+                'afterApplyingMask' => '12345-678'
+            ],
+            [
+                'maskEnum'          => EnumMasks::POSTAL_CODE(),
+                'wordToMask'        => '89765432'
+                'afterApplyingMask' => '89765-432'
+            ]
+        ];
+    }
+
+    /**
      * Tests whether the factory is building an object of coretamente mask.
      *
      * @dataProvider genericDataProvider
