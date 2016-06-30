@@ -5,7 +5,11 @@ use Masknizzer\MaskFactory;
 
 class TestCase extends PHPUnit_Framework_TestCase
 {
-
+    /**
+     * Data provider for generic tests.
+     *
+     * @return array
+     */
     public function genericDataProvider()
     {
         $maskFactory = new MaskFactory();
@@ -26,6 +30,11 @@ class TestCase extends PHPUnit_Framework_TestCase
         ];
     }
 
+    /**
+     * Data Provider for invalid arguments exception.
+     *
+     * @return array
+     */
     public function invalidArgunetExceptionDataProvider()
     {
         $maskFactory = new MaskFactory();
@@ -47,6 +56,8 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests whether the masks are applied correctly .
+     *
      * @dataProvider genericDataProvider
      */
     public function testFactory(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask){
@@ -55,6 +66,8 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests if an exception is being thrown when is passed by parameter a field with a different length of the mask.
+     *
      * @dataProvider invalidArgunetExceptionDataProvider
      *
      * @expectedException \InvalidArgumentException
