@@ -55,22 +55,27 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data Provider for mask test applicationData Provider for mask test application.
+     * Data Provider for mask test application.
      *
      * @return array
      */
-    public function maskApplicationTest()
+    public function maskApplicationTestDataProvider()
     {
         return [
             [
                 'maskEnum'          => EnumMasks::POSTAL_CODE(),
-                'wordToMask'        => '12345678'
+                'wordToMask'        => '12345678',
                 'afterApplyingMask' => '12345-678'
             ],
             [
                 'maskEnum'          => EnumMasks::POSTAL_CODE(),
-                'wordToMask'        => '89765432'
+                'wordToMask'        => '89765432',
                 'afterApplyingMask' => '89765-432'
+            ],
+            [
+                'maskEnum'          => EnumMasks::PHONE_NUMBER_8(),
+                'wordToMask'        => '1123455432',
+                'afterApplyingMask' => '(11) 2345-5432'
             ]
         ];
     }
@@ -95,5 +100,18 @@ class TestCase extends PHPUnit_Framework_TestCase
     public function testQuantityFieldsAndInvalidMask(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask)
     {
         $maskFactory->factory($maskEnum, $wordToMask)->mask();
+    }
+
+    /**
+     * Test application templates and data formatting.
+     *
+     * @dataProvider maskApplicationTestDataProvider
+     */
+    public function testMaskApplication($maskEnum, $wordToMask, $afterApplyingMask) {
+
+        $maskfactory = new MaskFactory();
+        $mask = $maskfactory->factory($maskEnum, $wordToMask);
+
+        $this->assertEquals($afterApplyingMask, $mask->mask());
     }
 }
