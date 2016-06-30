@@ -85,7 +85,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      *
      * @dataProvider genericDataProvider
      */
-    public function testFactory(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask)
+    public function testFactory(MaskFactory $maskFactory, $maskEnum, $wordToMask)
     {
         $mask = $maskFactory->factory($maskEnum, $wordToMask);
         $this->assertInstanceOf('Masknizzer\MaskField', $mask);
@@ -98,7 +98,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      *
      * @expectedException \InvalidArgumentException
      */
-    public function testQuantityFieldsAndInvalidMask(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask)
+    public function testQuantityFieldsAndInvalidMask(MaskFactory $maskFactory, $maskEnum, $wordToMask)
     {
         $maskFactory->factory($maskEnum, $wordToMask)->mask();
     }
