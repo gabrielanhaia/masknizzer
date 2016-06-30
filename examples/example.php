@@ -13,6 +13,13 @@ $maskFieldPhoneNumber = MaskFactory::factory(EnumMasks::PHONE_NUMBER_10(), 51936
 echo $maskFieldPhoneNumber->mask();
 echo '<br>';
 
+$maskGroupPhoneNumber = [
+    EnumMasks::PHONE_NUMBER_10(),
+    EnumMasks::PHONE_NUMBER_11()
+];
+
+$maskFieldPhoneNumbers = MaskFactory::factory()
+
 function dd($data)
 {
     echo '<pre>';
