@@ -17,7 +17,7 @@ class TestCase extends PHPUnit_Framework_TestCase
         return [
             [
                 'maskFactory' => $maskFactory,
-                'maskEnum'    => EnumMasks::PHONE_NUMBER_8(),
+                'maskEnum'    => EnumMasks::PHONE_NUMBER_10(),
                 'wordToMask'  => '53142325'
 
             ],
@@ -42,7 +42,7 @@ class TestCase extends PHPUnit_Framework_TestCase
         return [
             [
                 'maskFactory' => $maskFactory,
-                'maskEnum'    => EnumMasks::PHONE_NUMBER_8(),
+                'maskEnum'    => EnumMasks::PHONE_NUMBER_10(),
                 'wordToMask'  => '1234567'
             ],
             [
@@ -73,7 +73,7 @@ class TestCase extends PHPUnit_Framework_TestCase
                 'afterApplyingMask' => '89765-432'
             ],
             [
-                'maskEnum'          => EnumMasks::PHONE_NUMBER_8(),
+                'maskEnum'          => EnumMasks::PHONE_NUMBER_10(),
                 'wordToMask'        => '1123455432',
                 'afterApplyingMask' => '(11) 2345-5432'
             ]
@@ -85,7 +85,8 @@ class TestCase extends PHPUnit_Framework_TestCase
      *
      * @dataProvider genericDataProvider
      */
-    public function testFactory(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask){
+    public function testFactory(MaskFactory $maskFactory, EnumMasks $maskEnum, $wordToMask)
+    {
         $mask = $maskFactory->factory($maskEnum, $wordToMask);
         $this->assertInstanceOf('Masknizzer\MaskField', $mask);
     }
@@ -107,7 +108,8 @@ class TestCase extends PHPUnit_Framework_TestCase
      *
      * @dataProvider maskApplicationTestDataProvider
      */
-    public function testMaskApplication($maskEnum, $wordToMask, $afterApplyingMask) {
+    public function testMaskApplication($maskEnum, $wordToMask, $afterApplyingMask)
+    {
 
         $maskfactory = new MaskFactory();
         $mask = $maskfactory->factory($maskEnum, $wordToMask);

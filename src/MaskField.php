@@ -26,10 +26,10 @@ class MaskField
 
     /**
      * MaskFactory constructor.
-     * @param EnumMasks $mask Máscara a ser aplicada no campo
+     * @param EnumMasks[] $mask Máscara a ser aplicada no campo
      * @param string $field Campo a ser aplicado a máscara
      */
-    public function __construct(EnumMasks $mask, $field)
+    public function __construct($mask, $field)
     {
         $this->mask = $mask;
         $this->field = (string) $field;

@@ -9,7 +9,7 @@ $maskFieldPostalCode = MaskFactory::factory(EnumMasks::POSTAL_CODE(), 91234111);
 echo $maskFieldPostalCode->mask();
 echo '<br>';
 
-$maskFieldPhoneNumber = MaskFactory::factory(EnumMasks::PHONE_NUMBER_8(), 8525141577);
+$maskFieldPhoneNumber = MaskFactory::factory(EnumMasks::PHONE_NUMBER_10(), 5193699632);
 echo $maskFieldPhoneNumber->mask();
 echo '<br>';
 

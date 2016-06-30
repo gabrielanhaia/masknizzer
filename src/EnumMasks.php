@@ -18,5 +18,5 @@ class EnumMasks extends AbstractEnumeration
     const POSTAL_CODE = '#####-###';
 
     /** @var string PHONE_NUMBER Mask to 8-digit phone. / Máscara para telefone de 8 digitos. */
-    const PHONE_NUMBER_8 = '(##) ####-####';
+    const PHONE_NUMBER_10 = '(##) ####-####';
 }
