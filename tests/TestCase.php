@@ -44,7 +44,6 @@ class TestCase extends PHPUnit_Framework_TestCase
                 'maskFactory' => $maskFactory,
                 'maskEnum'    => EnumMasks::PHONE_NUMBER_8(),
                 'wordToMask'  => '1234567'
-
             ],
             [
                 'maskFactory' => $maskFactory,
@@ -56,7 +55,7 @@ class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests whether the masks are applied correctly .
+     * Tests whether the factory is building an object of coretamente mask.
      *
      * @dataProvider genericDataProvider
      */
