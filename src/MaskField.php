@@ -18,10 +18,12 @@ class MaskField
      */
     const CHARACTER_MASKS = '#';
 
-    /** @var EnumMasks $mask Mask to be applied in the field. / Máscara a ser aplicada no campo. */
+    /** @var EnumMasks[] $mask List of masks to be applied to the field. /
+     *                         Lista de Máscaras a seren aplicadas ao campo.
+     */
     protected $mask;
 
-    /** @var string $field Field to apply the mask. / Campo a ser aplicado a máscara. */
+    /** @var string $field Field to apply the masks. / Campo a ser aplicado as máscaras. */
     protected $field;
 
     /**
