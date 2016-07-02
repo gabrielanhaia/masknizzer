@@ -17,9 +17,13 @@ class EnumMasks extends AbstractEnumeration
     /** @var string POSTAL_CODE Mask Brazilian postcode. / Máscara para código postal(CEP) Brasileiro. */
     const POSTAL_CODE = '#####-###';
 
-    /** @var string PHONE_NUMBER Mask to 10-digit phone. / Máscara para telefone de 10 digitos. */
+    /** @var string PHONE_NUMBER Mask for 10-digit phone with area code. /
+     *                           Máscara para telefone de 10 dígitos junto com código de região.
+     */
     const PHONE_NUMBER_10 = '(##) ####-####';
 
-    /** @var string PHONE_NUMBER Mask to 11-digit phone. / Máscara para telefone de 11 digitos. */
+    /** @var string PHONE_NUMBER Mask for 11-digit phone with area code. /
+     *                           Máscara para telefone de 10 dígitos junto com código de região.
+     */
     const PHONE_NUMBER_11 = '(##) ####-#####';
 }

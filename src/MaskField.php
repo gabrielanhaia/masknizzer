@@ -18,22 +18,22 @@ class MaskField
      */
     const CHARACTER_MASKS = '#';
 
-    /** @var EnumMasks[] $mask List of masks to be applied to the field. /
+    /** @var EnumMasks[] $masks List of masks to be applied to the field. /
      *                         Lista de Máscaras a seren aplicadas ao campo.
      */
-    protected $mask;
+    protected $masks;
 
     /** @var string $field Field to apply the masks. / Campo a ser aplicado as máscaras. */
     protected $field;
 
     /**
      * MaskFactory constructor.
-     * @param EnumMasks[] $mask Máscara a ser aplicada no campo
-     * @param string $field Campo a ser aplicado a máscara
+     * @param EnumMasks[] $masks Masks to be applied in the field. / Máscaras a serem aplicadas no campo.
+     * @param string $field Field to apply the mask. / Campo a ser aplicado a máscara.
      */
-    public function __construct($mask, $field)
+    public function __construct($masks, $field)
     {
-        $this->mask = $mask;
+        $this->masks = $masks;
         $this->field = (string) $field;
     }
 
@@ -45,27 +45,31 @@ class MaskField
      */
     public function mask()
     {
-        $textMask = $this->mask->value();
-        $maskSize = substr_count($textMask, self::CHARACTER_MASKS);
+        foreach ($this->masks as $mask) {
+            $textMask = $mask->value();
+            $maskSize = substr_count($textMask, self::CHARACTER_MASKS);
 
-        if ($maskSize != strlen($this->field)) {
-            throw new \InvalidArgumentException(
-                'The value passed to the mask is incompatible with the shape of the mask.'
-            );
-        }
-
-        $maskedField = '';
-        $counterField = 0;
-        for ($counterMask = 0; $counterField <= strlen($this->field)-1; $counterMask++) {
-            if ($textMask[$counterMask] == self::CHARACTER_MASKS) {
-                $maskedField .= $this->field[$counterField];
-                $counterField++;
-            } else {
-                $maskedField .= $textMask[$counterMask];
+            if ($maskSize != strlen($this->field)) {
+                continue;
             }
+
+            $maskedField = '';
+            $counterField = 0;
+            for ($counterMask = 0; $counterField <= strlen($this->field) - 1; $counterMask++) {
+                if ($textMask[$counterMask] == self::CHARACTER_MASKS) {
+                    $maskedField .= $this->field[$counterField];
+                    $counterField++;
+                } else {
+                    $maskedField .= $textMask[$counterMask];
+                }
+            }
+
+            return $maskedField;
         }
 
-        return $maskedField;
+        throw new \InvalidArgumentException(
+            'The value passed to the mask is incompatible with the shape of the mask.'
+        );
     }
 
     /**

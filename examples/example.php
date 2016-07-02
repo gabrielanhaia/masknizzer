@@ -18,7 +18,7 @@ $maskGroupPhoneNumber = [
     EnumMasks::PHONE_NUMBER_11()
 ];
 
-$maskFieldPhoneNumbers = MaskFactory::factory($maskGroupPhoneNumber, 5193699632);
+$maskFieldPhoneNumbers = MaskFactory::factory($maskGroupPhoneNumber, 51936996312);
 echo $maskFieldPhoneNumbers->mask();
 
 function dd($data)
