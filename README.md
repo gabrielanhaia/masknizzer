@@ -16,6 +16,9 @@ composer install
 
 # Use (Uso)
 ####1 - Creating a new mask (Criando uma nova máscara):
+
+You can use '\Masknizzer\EnumMasks' already has several formats or (É possível usar os formatos de máscara padrão em '\Masknizzer\EnumMasks' ou)
+
 ```php
 use Eloquent\Enumeration\AbstractEnumeration;
 
