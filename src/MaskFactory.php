@@ -1,6 +1,7 @@
 <?php
 
 namespace Masknizzer;
+use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
  * Mask objects factory, responsible for building objects.
@@ -17,7 +18,7 @@ class MaskFactory
      * MaskField creates a type of the object according to the last mask.
      * Cria um objeto do tipo MaskField de acordo com a máscara passada.
      *
-     * @param EnumMasks[]|EnumMasks $mask Mask to be applied in a field. / Máscara a ser aplicada em um campo.
+     * @param AbstractEnumeration[]|AbstractEnumeration $mask Mask to be applied in a field. / Máscara a ser aplicada em um campo.
      * @param string $field Field to be applied to mask. / Campo a aplicar a máscara.
      * @return MaskField
      */

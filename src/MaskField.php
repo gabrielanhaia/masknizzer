@@ -1,6 +1,7 @@
 <?php
 
 namespace Masknizzer;
+use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
  * Class responsible for applying the masks to the fields.
@@ -28,7 +29,7 @@ class MaskField
 
     /**
      * MaskFactory constructor.
-     * @param EnumMasks[] $masks Masks to be applied in the field. / Máscaras a serem aplicadas no campo.
+     * @param AbstractEnumeration[] $masks Masks to be applied in the field. / Máscaras a serem aplicadas no campo.
      * @param string $field Field to apply the mask. / Campo a ser aplicado a máscara.
      */
     public function __construct($masks, $field)
@@ -100,7 +101,7 @@ class MaskField
      * Set a Mask.
      * Define uma Máscara.
      *
-     * @param EnumMasks $mask
+     * @param AbstractEnumeration $mask
      * @return MaskFactory
      */
     public function setMask($mask)
@@ -113,7 +114,7 @@ class MaskField
      * Returns the Mask.
      * Retorna a Máscara.
      *
-     * @return EnumMasks
+     * @return AbstractEnumeration
      */
     public function getMask()
     {
