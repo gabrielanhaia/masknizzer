@@ -43,7 +43,7 @@ class CustomEnumMasks extends AbstractEnumeration
 
 *Observação: As máscaras customizadas devem extender de 'Eloquent\Enumeration\AbstractEnumeration' e as constantes devem seguir o padrão de '\Masknizzer\EnumMasks'.*
 
-####2 - Building a type of object masks. (Construindo um objeto do tipo das máscaras):
+####2 - Building a type of object masks (Construindo um objeto do tipo das máscaras):
 
 ```php
 use Masknizzer\EnumMasks;
@@ -65,7 +65,7 @@ $maskGroupPhoneNumber = [
 $maskFieldPhoneNumbers = MaskFactory::factory($maskGroupPhoneNumber, 51123456789);
 ```
 
-###3 - Processing the mask in field (Processando a máscara no campo)
+###3 - Processing the mask in field (Processando a máscara no campo):
 ```php
 $maskedField = $maskFieldPostalCode->mask();
 ```
